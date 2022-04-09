@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/fxdigitallogo.png";
+import logo from "../../assets/fxdigitallogo.png";
 
 function Header() {
   return (

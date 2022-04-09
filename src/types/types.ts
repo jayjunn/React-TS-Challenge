@@ -26,3 +26,11 @@ export type Movie = {
   title: string;
   image: string;
 };
+
+export type MoviePram = {
+  id: string;
+};
+
+export type MovieDetails = {
+  id: string;
+};
