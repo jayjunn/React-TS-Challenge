@@ -24,8 +24,11 @@ main {
   /* width: 100vw; */
 }
 
+a {
+  text-decoration: none;
+}
+
 main section {
   width: 100%;
   max-width: 1200px;
 }
-

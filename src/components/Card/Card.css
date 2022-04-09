@@ -1,0 +1,32 @@
+.card__box {
+  width: 16em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  transition: 0.4s;
+}
+
+.card__box:hover {
+  transform: scale(1.05);
+}
+
+.card__title {
+  margin-top: 12px;
+  color: black;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 70%;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .card__box {
+    margin-top: 12px;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+}

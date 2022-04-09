@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./SearchBar.module.css";
+import "./SearchBar.css";
 
 interface IProps {
   searchTerm: string;
@@ -16,7 +16,7 @@ const SearchBar = (props: IProps) => {
 
   return (
     <input
-      className={styles.input}
+      className="search__input"
       type="text"
       name="search"
       placeholder="Type to search"

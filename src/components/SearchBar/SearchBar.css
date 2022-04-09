@@ -1,0 +1,12 @@
+.search__input {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .search__input {
+    padding: 10px 10px;
+    width: 85%;
+  }
+}

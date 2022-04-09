@@ -16,7 +16,7 @@ function App() {
       <main>
         <section>
           <Routes>
-            <Route path={"/"} element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/movies/:id" element={<MovieDetails />} />
           </Routes>
         </section>

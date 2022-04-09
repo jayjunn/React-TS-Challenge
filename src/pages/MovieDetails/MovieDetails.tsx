@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner/Spinner";
 import API from "../../config";
 import { getMovieDetails } from "../../services/apiServices";
-import styles from "./MovieDetails.module.css";
 import { MoviePram, MovieList } from "../../types/types";
+import "./MovieDetails.css";
 
-const MovieDetails = () => {
+function MovieDetails() {
   const { id } = useParams<MoviePram>();
   const [details, setDetails] = useState<MovieList>();
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,44 +19,40 @@ const MovieDetails = () => {
         .then((res) => {
           setDetails(res);
           setIsLoading(false);
-          setError(null);
+          setError(false);
         })
-        .catch((e) => {
-          setError(e);
+        .catch(() => {
+          setError(true);
           setIsLoading(false);
         });
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className="details__box">
       {isLoading && <Spinner />}
-      {error && <h1>errors,{error}</h1>}
+      {error && <h1>Something went wrong</h1>}
       {!isLoading && !error && details && (
-        <div className={styles.contents}>
-          <h3 className={styles.subHead}>Movie Information</h3>
-          <div className={styles.infoContainer}>
-            <div className={styles.imgContainer}>
+        <div className="details__contents">
+          <h3 className="subHea">Movie Information</h3>
+          <div className="info__box">
+            <div className="imgContainer">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
                 alt="poster_image"
-                className={styles.img}
+                className="img"
               />
             </div>
-            <div className={styles.textContainer}>
-              <h3 className={styles.title}>{details.original_title}</h3>
+            <div className="text__box">
+              <h3 className="details__title">{details.original_title}</h3>
               <p>{details.overview}</p>
-              <div className={styles.date}>
-                Release Date: {details.release_date}
-              </div>
-              <div className={styles.score}>
-                Review Score: {details.vote_average}
-              </div>
+              <div className="date">Release Date: {details.release_date}</div>
+              <div className="score">Review Score: {details.vote_average}</div>
             </div>
           </div>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default MovieDetails;

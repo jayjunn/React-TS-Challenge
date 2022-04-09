@@ -1,6 +1,6 @@
 export type Api = {
-  KEY: String;
-  BASED_URL: String;
+  KEY: string;
+  BASED_URL: string;
 };
 
 export type MovieList = {

@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
-import { getMovieTrending } from "../../services/apiServices";
 import API from "../../config";
-import styles from "./Home.module.css";
+import { getMovieTrending } from "../../services/apiServices";
 import { MovieList } from "../../types/types";
 import Spinner from "../../components/Spinner/Spinner";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./Home.css";
 
 function Home() {
   const [movieList, setMovieList] = useState<MovieList[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
-  console.log(searchTerm);
   useEffect(() => {
     setIsLoading(true);
     getMovieTrending(API)
       .then((res) => {
         setMovieList(res);
         setIsLoading(false);
-        setError(null);
+        setError(false);
       })
-      .catch((e) => {
-        setError(e);
+      .catch(() => {
+        setError(false);
         setIsLoading(false);
       });
   }, []);
@@ -41,16 +40,16 @@ function Home() {
   const filteredList = filterMovies();
 
   return (
-    <div className={styles.container}>
+    <div className="home">
       {isLoading && <Spinner />}
-      {error && <h1>errors,{error}</h1>}
+      {error && <h1>something went wrong</h1>}
       {!isLoading && !error && (
-        <div className={styles.contents}>
-          <div className={styles.search}>
+        <div className="home__contents">
+          <div className="home__header">
             <h3>Trending Movie</h3>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           </div>
-          <ul className={styles.ul}>
+          <ul className="movie__list">
             {filteredList.map((i) => {
               return (
                 <Card
