@@ -16,6 +16,6 @@
     "noEmit": false,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "./declaration.d.ts"],
   "exclude": ["src/index.js"]
 }
