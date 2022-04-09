@@ -1,5 +1,5 @@
-import React from "react";
-import "./SearchBar.css";
+import React from 'react';
+import './SearchBar.css';
 
 interface IProps {
   searchTerm: string;

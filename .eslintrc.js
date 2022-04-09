@@ -1,38 +1,32 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
     es2021: true,
   },
-  plugins: ["@typescript-eslint"],
+  extends: ["plugin:react/recommended", "airbnb", "prettier"],
   parser: "@typescript-eslint/parser",
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    "plugin:prettier/recommended",
-  ],
   parserOptions: {
-    project: "./tsconfig.json",
-  },
-  overrides: [
-    {
-      files: ["*.ts", "*.tsx"],
-      extends: [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-      ],
-
-      parserOptions: {
-        project: ["./tsconfig.json"],
-      },
+    ecmaFeatures: {
+      jsx: true,
     },
-  ],
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
+  plugins: ["react", "@typescript-eslint", "prettier"],
   rules: {
-    "@typescript-eslint/no-unsafe-assignment": "error",
-    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
-
+    "linebreak-style": 0,
+    "react/jsx-filename-extension": [
+      1,
+      { extensions: [".ts", ".tsx", ".js", ".jsx"] },
+    ],
+    "prettier/prettier": [
+      1,
+      {
+        trailingComma: "es5",
+        singleQuote: true,
+        semi: true,
+      },
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -44,10 +38,19 @@ module.exports = {
       },
     ],
     "import/prefer-default-export": "off",
+    "implicit-arrow-linebreak": "off",
+    "object-curly-newline": "off",
     "react/require-default-props": "off",
-    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
-    "@typescript-eslint/strict-boolean-expressions": 0,
-    "prettier/prettier": ["error", { singleQuote: false }],
   },
-  ignorePatterns: ["index.js"],
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        moduleDirectory: ["node_modules", "src/"],
+      },
+    },
+  },
+  globals: {
+    NodeJS: true,
+  },
 };

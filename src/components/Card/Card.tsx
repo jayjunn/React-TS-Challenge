@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Movie } from "../../types/types";
-import "./Card.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Movie } from '../../types/types';
+import './Card.css';
 
 /**
  * This should be a React component that, at the very least,

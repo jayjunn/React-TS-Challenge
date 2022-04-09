@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Spinner from "../../components/Spinner/Spinner";
-import API from "../../config";
-import { getMovieDetails } from "../../services/apiServices";
-import { MoviePram, MovieList } from "../../types/types";
-import "./MovieDetails.css";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Spinner from '../../components/Spinner/Spinner';
+import API from '../../config';
+import { getMovieDetails } from '../../services/apiServices';
+import { MoviePram, MovieList } from '../../types/types';
+import './MovieDetails.css';
 
 function MovieDetails() {
   const { id } = useParams<MoviePram>();
