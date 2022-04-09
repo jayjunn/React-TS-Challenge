@@ -4,6 +4,7 @@ import { getMovieTrending } from "../../services/apiServices";
 import API from "../../config";
 import styles from "./Home.module.css";
 import { Data } from "../../types/dataType";
+import Spinner from "../../components/Spinner/Spinner";
 
 function Home() {
   const [movieList, setMovieList] = useState<Data[]>([]);
@@ -24,10 +25,9 @@ function Home() {
       });
   }, []);
 
-  console.log(movieList);
   return (
     <div className={styles.container}>
-      {isLoading && <div>loading</div>}
+      {isLoading && <Spinner />}
       {error && <h1>errors,{error}</h1>}
       {!isLoading && !error && (
         <div className={styles.contents}>
