@@ -14,9 +14,9 @@ function MovieDetails() {
 
   useEffect(() => {
     setIsLoading(true);
-    id &&
+    if (id) {
       getMovieDetails(API, id)
-        .then((res) => {
+        .then((res: MovieList) => {
           setDetails(res);
           setIsLoading(false);
           setError(false);
@@ -25,7 +25,8 @@ function MovieDetails() {
           setError(true);
           setIsLoading(false);
         });
-  }, []);
+    }
+  }, [id]);
 
   return (
     <div className="details__box">

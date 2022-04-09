@@ -16,8 +16,9 @@ function Home() {
   useEffect(() => {
     setIsLoading(true);
     getMovieTrending(API)
-      .then((res) => {
-        setMovieList(res);
+      .then((res: MovieList[]) => {
+        const slicedList = res.slice(0, 10);
+        setMovieList(slicedList);
         setIsLoading(false);
         setError(false);
       })

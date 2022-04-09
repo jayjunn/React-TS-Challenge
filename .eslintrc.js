@@ -1,9 +1,12 @@
 module.exports = {
   root: true,
+  env: {
+    browser: true,
+    es2021: true,
+  },
   plugins: ["@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   extends: [
-    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "airbnb",
     "airbnb/hooks",
@@ -22,18 +25,28 @@ module.exports = {
       ],
 
       parserOptions: {
-        project: ["./tsconfig.json"], // Specify it only for TypeScript files
+        project: ["./tsconfig.json"],
       },
     },
   ],
   rules: {
-    "@typescript-eslint/strict-boolean-expressions": [
-      2,
+    "@typescript-eslint/no-unsafe-assignment": "error",
+    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
+
+    "import/extensions": [
+      "error",
+      "ignorePackages",
       {
-        allowString: false,
-        allowNumber: false,
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
       },
     ],
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
+    "@typescript-eslint/strict-boolean-expressions": 0,
     "prettier/prettier": ["error", { singleQuote: false }],
   },
   ignorePatterns: ["index.js"],

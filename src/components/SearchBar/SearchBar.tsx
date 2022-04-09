@@ -6,7 +6,7 @@ interface IProps {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBar = (props: IProps) => {
+function SearchBar(props: IProps) {
   const { searchTerm, setSearchTerm } = props;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +24,6 @@ const SearchBar = (props: IProps) => {
       value={searchTerm}
     />
   );
-};
+}
 
 export default SearchBar;
