@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
-import { MovieList } from "../../types/dataType";
+import { Movie } from "../../types/types";
 
 /**
  * This should be a React component that, at the very least,
@@ -13,7 +13,7 @@ import { MovieList } from "../../types/dataType";
  *
  */
 
-function Card(props: MovieList) {
+function Card(props: Movie) {
   const { title, image, id } = props;
 
   return (

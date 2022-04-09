@@ -1,4 +1,9 @@
-export type Data = {
+export type Api = {
+  KEY: String;
+  BASED_URL: String;
+};
+
+export type MovieList = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -15,7 +20,7 @@ export type Data = {
   vote_count: number;
 };
 
-export type MovieList = {
+export type Movie = {
   key: number;
   id: number;
   title: string;
